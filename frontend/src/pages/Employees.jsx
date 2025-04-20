@@ -24,7 +24,7 @@ function Employees() {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        `${process.env.BACKEND_URL}/api/employees`
+        `${import.meta.env.VITE_BACKEND_URL}/api/employees`
       );
       setEmployees(response.data);
     } catch (error) {
@@ -51,7 +51,7 @@ function Employees() {
       // If editing existing employee
       if (formData.id) {
         const res = await axios.put(
-          `${process.env.BACKEND_URL}/api/employees/${formData.id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/employees/${formData.id}`,
           {
             fullName: formData.fullName,
             email: formData.email,
@@ -69,7 +69,7 @@ function Employees() {
       // If adding new employee
       else {
         const res = await axios.post(
-          `${process.env.BACKEND_URL}/api/employees`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
           {
             fullName: formData.fullName,
             email: formData.email,
@@ -112,7 +112,9 @@ function Employees() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       try {
-        await axios.delete(`${process.env.BACKEND_URL}/api/employees/${id}`);
+        await axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/employees/${id}`
+        );
         setEmployees((prev) => prev.filter((emp) => emp._id !== id));
         alert("Employee deleted successfully");
       } catch (err) {

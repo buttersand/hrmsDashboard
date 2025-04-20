@@ -26,7 +26,7 @@ function Candidates() {
     const fetchCandidates = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/api/candidates`
+          `${import.meta.env.VITE_BACKEND_URL}/api/candidates`
         );
         setCandidates(response.data);
       } catch (error) {
@@ -75,7 +75,7 @@ function Candidates() {
 
     try {
       const res = await axios.post(
-        `${process.env.BACKEND_URL}/api/candidates`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/candidates`,
         form,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -101,7 +101,9 @@ function Candidates() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${process.env.BACKEND_URL}/api/candidates/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_URL}/api/candidates/${id}`
+      );
       setCandidates((prev) => prev.filter((c) => c._id !== id));
       alert("Candidate deleted");
     } catch (err) {
@@ -111,16 +113,19 @@ function Candidates() {
 
   const handleDownload = (fileName) => {
     window.open(
-      `${process.env.BACKEND_URL}/api/candidates/download/${fileName}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/candidates/download/${fileName}`,
       "_blank"
     );
   };
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`${process.env.BACKEND_URL}/api/candidates/${id}`, {
-        status: newStatus,
-      });
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/candidates/${id}`,
+        {
+          status: newStatus,
+        }
+      );
       setCandidates((prev) =>
         prev.map((c) => (c._id === id ? { ...c, status: newStatus } : c))
       );
@@ -129,7 +134,7 @@ function Candidates() {
     }
   };
 
-  const filteredCandidates = candidates.filter((candidate) => {
+  const filteredCandidates = candidates?.filter((candidate) => {
     const matchesStatus =
       !filters.status ||
       candidate.status?.toLowerCase() === filters.status.toLowerCase();

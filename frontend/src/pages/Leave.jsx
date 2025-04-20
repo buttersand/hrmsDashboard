@@ -31,8 +31,8 @@ export default function Leave() {
     const fetchData = async () => {
       try {
         const [leavesRes, empsRes] = await Promise.all([
-          axios.get(`${process.env.BACKEND_URL}/api/leaves`),
-          axios.get(`${process.env.BACKEND_URL}/api/employees`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/leaves`),
+          axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/employees`),
         ]);
         setLeaves(leavesRes.data);
         setEmployees(empsRes.data);
@@ -146,7 +146,7 @@ export default function Leave() {
     if (formData.document) form.append("document", formData.document);
 
     try {
-      await axios.post(`${process.env.BACKEND_URL}api/leaves`, form, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/leaves`, form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setShowModal(false);
@@ -159,7 +159,9 @@ export default function Leave() {
         status: "Pending",
         document: null,
       });
-      const { data } = await axios.get(`${process.env.BACKEND_URL}/api/leaves`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/leaves`
+      );
       setLeaves(data);
     } catch (err) {
       console.error("Submit error:", err);
@@ -168,10 +170,15 @@ export default function Leave() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.patch(`${process.env.BACKEND_URL}/api/leaves/${id}`, {
-        status: newStatus,
-      });
-      const { data } = await axios.get(`${process.env.BACKEND_URL}/api/leaves`);
+      await axios.patch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/leaves/${id}`,
+        {
+          status: newStatus,
+        }
+      );
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/leaves`
+      );
       setLeaves(data);
     } catch (err) {
       console.error(err);
@@ -179,7 +186,8 @@ export default function Leave() {
   };
 
   const handleDownload = (path) => {
-    if (path) window.open(`${process.env.BACKEND_URL}/${path}`, "_blank");
+    if (path)
+      window.open(`${import.meta.env.VITE_BACKEND_URL}/${path}`, "_blank");
   };
 
   const filteredList = leaves.filter((l) => {

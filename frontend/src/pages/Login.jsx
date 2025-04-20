@@ -40,7 +40,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        `${process.env.BACKEND_URL}/api/auth/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
         { email: formData.email, password: formData.password },
         config
       );

@@ -20,7 +20,7 @@ function Attendance() {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        `${process.env.BACKEND_URL}api/employees`
+        `${import.meta.env.VITE_BACKEND_URL}api/employees`
       );
       setEmployees(response.data);
     } catch (error) {
@@ -31,7 +31,7 @@ function Attendance() {
   const fetchAllAttendance = async () => {
     try {
       const response = await axios.get(
-        `${process.env.BACKEND_URL}/api/attendance`
+        `${import.meta.env.VITE_BACKEND_URL}/api/attendance`
       );
       setAttendances(response.data);
     } catch (error) {
@@ -42,7 +42,9 @@ function Attendance() {
   const fetchEmployeeAttendanceHistory = async (employeeId) => {
     try {
       const response = await axios.get(
-        `${process.env.BACKEND_URL}/api/attendance/employee/${employeeId}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/attendance/employee/${employeeId}`
       );
       setAttendanceHistory(response.data);
       setSelectedEmployeeId(employeeId);
@@ -59,7 +61,7 @@ function Attendance() {
   const handleStatusChange = async (employeeId, status) => {
     try {
       const response = await axios.post(
-        `${process.env.BACKEND_URL}/api/attendance/mark`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/attendance/mark`,
         {
           employeeId,
           status,
@@ -81,7 +83,7 @@ function Attendance() {
     ) {
       try {
         await axios.delete(
-          `${process.env.BACKEND_URL}/api/attendance/${attendanceId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/attendance/${attendanceId}`
         );
         setAttendances((prev) =>
           prev.filter((att) => att._id !== attendanceId)

@@ -40,7 +40,7 @@ const Registration = () => {
       };
 
       const { data } = await axios.post(
-        `${process.env.BACKEND_URL}/api/auth/register`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
         {
           name: formData.name,
           email: formData.email,
