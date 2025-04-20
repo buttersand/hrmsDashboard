@@ -146,7 +146,7 @@ export default function Leave() {
     if (formData.document) form.append("document", formData.document);
 
     try {
-      await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/leaves`, form, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/leaves`, form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setShowModal(false);

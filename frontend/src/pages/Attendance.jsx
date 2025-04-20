@@ -20,7 +20,7 @@ function Attendance() {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}api/employees`
+        `${import.meta.env.VITE_BACKEND_URL}/api/employees`
       );
       setEmployees(response.data);
     } catch (error) {
