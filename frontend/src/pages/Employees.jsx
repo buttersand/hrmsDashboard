@@ -23,7 +23,9 @@ function Employees() {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/employees");
+      const response = await axios.get(
+        `${process.env.BACKEND_URL}/api/employees`
+      );
       setEmployees(response.data);
     } catch (error) {
       console.error("Error fetching employees:", error);
@@ -49,7 +51,7 @@ function Employees() {
       // If editing existing employee
       if (formData.id) {
         const res = await axios.put(
-          `http://localhost:5000/api/employees/${formData.id}`,
+          `${process.env.BACKEND_URL}/api/employees/${formData.id}`,
           {
             fullName: formData.fullName,
             email: formData.email,
@@ -66,14 +68,17 @@ function Employees() {
       }
       // If adding new employee
       else {
-        const res = await axios.post("http://localhost:5000/api/employees", {
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          position: formData.position,
-          department: formData.department,
-          dateOfJoining: formData.dateOfJoining,
-        });
+        const res = await axios.post(
+          `${process.env.BACKEND_URL}/api/employees`,
+          {
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            position: formData.position,
+            department: formData.department,
+            dateOfJoining: formData.dateOfJoining,
+          }
+        );
 
         setEmployees((prev) => [...prev, res.data]);
       }
@@ -107,7 +112,7 @@ function Employees() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/employees/${id}`);
+        await axios.delete(`${process.env.BACKEND_URL}/api/employees/${id}`);
         setEmployees((prev) => prev.filter((emp) => emp._id !== id));
         alert("Employee deleted successfully");
       } catch (err) {

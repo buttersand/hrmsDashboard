@@ -26,7 +26,7 @@ function Candidates() {
     const fetchCandidates = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/candidates"
+          `${process.env.BACKEND_URL}/api/candidates`
         );
         setCandidates(response.data);
       } catch (error) {
@@ -75,7 +75,7 @@ function Candidates() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/candidates",
+        `${process.env.BACKEND_URL}/api/candidates`,
         form,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -101,7 +101,7 @@ function Candidates() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/candidates/${id}`);
+      await axios.delete(`${process.env.BACKEND_URL}/api/candidates/${id}`);
       setCandidates((prev) => prev.filter((c) => c._id !== id));
       alert("Candidate deleted");
     } catch (err) {
@@ -111,14 +111,14 @@ function Candidates() {
 
   const handleDownload = (fileName) => {
     window.open(
-      `http://localhost:5000/api/candidates/download/${fileName}`,
+      `${process.env.BACKEND_URL}/api/candidates/download/${fileName}`,
       "_blank"
     );
   };
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/candidates/${id}`, {
+      await axios.put(`${process.env.BACKEND_URL}/api/candidates/${id}`, {
         status: newStatus,
       });
       setCandidates((prev) =>
