@@ -1,0 +1,453 @@
+/* Leave.css */
+:root {
+  --color-primary: #5e0f8b;
+  --primary-light: #f8f5fc;
+  --approved-color: #22c55e;
+  --pending-color: #eab308;
+  --rejected-color: #ef4444;
+  --border-color: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --background-light: #f8fafc;
+  --white: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-primary);
+}
+
+/* Main Container */
+.leave-management-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Top Controls */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-group select,
+.search-group input {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--white);
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+  min-width: 120px;
+}
+
+.search-input {
+  width: 240px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  padding-left: 40px;
+}
+
+.add-leave-btn {
+  background-color: var(--color-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.add-leave-btn:hover {
+  opacity: 0.9;
+}
+
+/* Content Panels */
+.content-panels {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+}
+
+.list-panel,
+.calendar-panel {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* List Panel */
+.list-panel h2,
+.calendar-panel h2 {
+  background-color: var(--color-primary);
+  color: var(--white);
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.leaves-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaves-table th,
+.leaves-table td {
+  padding: 16px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.leaves-table th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.profile-cell {
+  width: 60px;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.employee-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.employee-position {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.status-dropdown select {
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.status-dropdown.approved select {
+  color: var(--approved-color);
+  border-color: var(--approved-color);
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.status-dropdown.pending select {
+  color: var(--pending-color);
+  border-color: var(--pending-color);
+  background-color: rgba(234, 179, 8, 0.1);
+}
+
+.status-dropdown.rejected select {
+  color: var(--rejected-color);
+  border-color: var(--rejected-color);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.doc-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+
+.no-doc {
+  color: var(--text-secondary);
+}
+
+/* Calendar Panel */
+.calendar-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-navigation button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.calendar-navigation h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.calendar {
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.weekdays div {
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day-cell {
+  position: relative;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.day-cell.empty {
+  cursor: default;
+}
+
+.day-cell.selected {
+  background-color: var(--primary-light);
+}
+
+.day-cell.has-leaves {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.day-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* Approved Leaves Section */
+.approved-leaves {
+  padding: 16px 24px;
+}
+
+.approved-leaves h3 {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.approved-employee {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.employee-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.employee-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.employee-info {
+  flex: 1;
+}
+
+.leave-date {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+.modal h2 {
+  background-color: var(--color-primary);
+  color: var(--white);
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modal form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.file-input {
+  padding: 8px;
+  border: 1px dashed var(--border-color);
+  background-color: var(--background-light);
+}
+
+.employee-search-container {
+  position: relative;
+}
+
+.employee-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.employee-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.employee-option:hover {
+  background-color: var(--primary-light);
+}
+
+.employee-option-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.employee-option-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.employee-option-name {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.employee-option-position {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.submit-btn {
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--white);
+}

@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+.leave-management-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f7;
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-and-add {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  width: 180px;
+  font-size: 14px;
+}
+
+.add-leave-button {
+  background-color: #5b21b6;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.applied-leaves-section {
+  background-color: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.section-header {
+  background-color: #5b21b6;
+  padding: 14px 20px;
+}
+
+.section-header h2 {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.leaves-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.leaves-table thead {
+  background-color: #5b21b6;
+  color: white;
+}
+
+.leaves-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+.leaves-table td {
+  padding: 16px;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-cell {
+  width: 50px;
+}
+.leaves-table thead tr th:first-child {
+  border-top-left-radius: 0;
+}
+
+.leaves-table thead tr th:last-child {
+  border-top-right-radius: 0;
+}
+.profile-cell img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name-cell {
+  min-width: 180px;
+}
+
+.employee-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.employee-role {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.status-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid;
+  border-radius: 24px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.status-button.approved {
+  color: #10b981;
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.docs-cell {
+  text-align: center;
+}
+
+.calendar-section {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.month-navigation h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.month-nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-wrapper {
+  padding: 0;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-header {
+  background-color: #5b21b6;
+  color: white;
+}
+
+.calendar th {
+  padding: 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.calendar td {
+  height: 60px;
+  text-align: center;
+  vertical-align: top;
+  padding: 12px;
+  position: relative;
+  font-size: 14px;
+  border: 1px solid #f0f0f0;
+}
+
+.calendar td.marked-date {
+  background-color: #f3e8ff;
+  color: #5b21b6;
+  font-weight: 500;
+}
+
+.leave-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: #5b21b6;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.approved-leaves {
+  padding: 16px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.approved-leaves h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.approved-leave-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leave-profile img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leave-details {
+  flex: 1;
+}
+
+.leave-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.leave-role {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.leave-date {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .applied-leaves-section {
+    flex: 3;
+  }
+
+  .calendar-section {
+    flex: 2;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}
