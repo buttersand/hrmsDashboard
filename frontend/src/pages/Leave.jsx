@@ -192,7 +192,7 @@ export default function Leave() {
 
   const filteredList = leaves.filter((l) => {
     const okStatus = filters.status === "All" || l.status === filters.status;
-    const okSearch = l.employee.fullName
+    const okSearch = l?.employee?.fullName
       .toLowerCase()
       .includes(filters.search.toLowerCase());
     return okStatus && okSearch;
@@ -201,6 +201,8 @@ export default function Leave() {
   const approvedOnDate = (leavesByDate[selectedDate] || []).filter(
     (l) => l.status === "Approved"
   );
+
+  console.log(approvedOnDate);
 
   return (
     <div className="leave-management-container">
