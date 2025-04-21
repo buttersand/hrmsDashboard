@@ -5,8 +5,8 @@ This is a **Human Resource Management System (HRMS)** The project demonstrates a
 ---
 
 ## 🚀 Live Link
-> **Hosted on:** (
-> **Demo Video:** 
+> **Hosted on:**--->https://hrms-dashboard-zeta.vercel.app/
+> **Demo Video:**--->https://drive.google.com/file/d/1_vA-XLe9XWCApCQCVFqT0wyAL-Zoz9Tt/view
 
 ---
 
